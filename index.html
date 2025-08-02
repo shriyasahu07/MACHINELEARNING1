@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f7fa;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            margin-top: 25px;
+            width: 100%;
+            background-color: #1f74d2;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #155bb3;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Predict Your Expected CTC 💼</h2>
+
+        <form method="POST">
+            <label>Total Experience:</label>
+            <input name="Total_Experience" type="number" required>
+
+            <label>Total Experience in Field Applied:</label>
+            <input name="Total_Experience_in_field_applied" type="number" required>
+
+            <label>Department:</label>
+            <input name="Department" type="text" required>
+
+            <label>Role:</label>
+            <input name="Role" type="text" required>
+
+            <label>Industry:</label>
+            <input name="Industry" type="text" required>
+
+            <label>Organization:</label>
+            <input name="Organization" type="text" required>
+
+            <label>Designation:</label>
+            <input name="Designation" type="text" required>
+
+            <label>Education:</label>
+            <input name="Education" type="text" required>
+
+            <label>Graduation Specialization:</label>
+            <input name="Graduation_Specialization" type="text" required>
+
+            <label>University (Graduation):</label>
+            <input name="University_Grad" type="text" required>
+
+            <label>Passing Year of Graduation:</label>
+            <input name="Passing_Year_Of_Graduation" type="number" required>
+
+            <label>PG Specialization:</label>
+            <input name="PG_Specialization" type="text" required>
+
+            <label>University (PG):</label>
+            <input name="University_PG" type="text" required>
+
+            <label>Passing Year of PG:</label>
+            <input name="Passing_Year_Of_PG" type="number" required>
+
+            <label>Current Location:</label>
+            <input name="Curent_Location" type="text" required>
+
+            <label>Preferred Location:</label>
+            <input name="Preferred_location" type="text" required>
+
+            <label>Current CTC:</label>
+            <input name="Current_CTC" type="number" required>
+
+            <label>Inhand Offer:</label>
+            <select name="Inhand_Offer" required>
+            <option value="">-- Select --</option>
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+            </select>
+
+            <label>Last Appraisal Rating:</label>
+            <select name="Last_Appraisal_Rating" required>
+            <option value="">-- Select --</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="Key_Performer">Key Performer</option>
+            </select>
+
+
+            <label>No. of Companies Worked:</label>
+            <input name="No_Of_Companies_worked" type="number" required>
+
+            <label>Number of Publications:</label>
+            <input name="Number_of_Publications" type="number" required>
+
+            <label>Certifications:</label>
+            <input name="Certifications" type="text" required>
+
+            <label>International Degree (1 for Yes, 0 for No):</label>
+            <select name="International_degree_any" required>
+            <option value="">-- Select --</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+            </select>
+
+
+            <input type="submit" value="Predict Expected CTC">
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <strong>🎯 Predicted Expected CTC:</strong> ₹{{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
